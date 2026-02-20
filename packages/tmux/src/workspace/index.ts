@@ -1,0 +1,6 @@
+export { loadConfig, parseConfig, expand, trickle } from "./loader.js"
+export { buildWorkspace } from "./builder.js"
+export type { BuildOptions } from "./builder.js"
+export { freezeSession } from "./freezer.js"
+export { validateConfig, WorkspaceValidationError } from "./validation.js"
+export type { WorkspaceConfig, WindowConfig, PaneConfig } from "./types.js"

@@ -1,0 +1,18 @@
+session_name: test-workspace
+start_directory: /tmp
+windows:
+  - window_name: editor
+    panes:
+      - shell_command: echo hello
+      - shell_command: echo world
+  - window_name: servers
+    layout: even-horizontal
+    panes:
+      - shell_command:
+          - echo "server 1"
+      - shell_command: echo "server 2"
+      - shell_command: echo "server 3"
+  - window_name: logs
+    focus: true
+    panes:
+      - shell_command: echo "watching logs"
