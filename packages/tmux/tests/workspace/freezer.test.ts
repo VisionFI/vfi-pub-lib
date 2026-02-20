@@ -57,7 +57,10 @@ describe("freezer", () => {
 		const config = freezeSession(session)
 		const termWindow = config.windows.find((w) => w.window_name === "term")
 		expect(termWindow).toBeDefined()
-		expect(termWindow!.panes.length).toBe(2)
+		if (!termWindow) {
+			throw new Error("expected term window")
+		}
+		expect(termWindow.panes.length).toBe(2)
 	})
 
 	test("frozen config has layout information", () => {

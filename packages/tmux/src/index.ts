@@ -32,7 +32,16 @@ export type {
 } from "./core/index.js"
 
 // Workspace — config loading, building, freezing
-export { loadConfig, parseConfig, expand, trickle, buildWorkspace, freezeSession, validateConfig, WorkspaceValidationError } from "./workspace/index.js"
+export {
+	loadConfig,
+	parseConfig,
+	expand,
+	trickle,
+	buildWorkspace,
+	freezeSession,
+	validateConfig,
+	WorkspaceValidationError,
+} from "./workspace/index.js"
 export type { BuildOptions, WorkspaceConfig, WindowConfig, PaneConfig } from "./workspace/index.js"
 
 // Plugin — extension system

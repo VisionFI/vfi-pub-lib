@@ -16,7 +16,11 @@ export interface BuildOptions {
  *
  * Sequence: create session → for each window → for each pane → send commands.
  */
-export async function buildWorkspace(server: Server, config: WorkspaceConfig, options?: BuildOptions): Promise<Session> {
+export async function buildWorkspace(
+	server: Server,
+	config: WorkspaceConfig,
+	options?: BuildOptions,
+): Promise<Session> {
 	const plugins = options?.plugins ?? []
 
 	// Kill existing session if requested

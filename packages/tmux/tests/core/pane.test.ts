@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, test } from "bun:test"
+import type { Pane } from "../../src/core/pane"
 import { Server } from "../../src/core/server"
 import type { Session } from "../../src/core/session"
-import type { Pane } from "../../src/core/pane"
 
 const TEST_SESSION = "__vfi_tmux_test_pane__"
 

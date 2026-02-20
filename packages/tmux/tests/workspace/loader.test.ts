@@ -3,6 +3,7 @@ import { resolve } from "node:path"
 import { expand, loadConfig, parseConfig, trickle } from "../../src/workspace/loader"
 
 const FIXTURES_DIR = resolve(import.meta.dir, "../fixtures")
+type UnknownRecord = Record<string, unknown>
 
 describe("loader", () => {
 	test("loadConfig loads and validates a YAML file", () => {
@@ -46,7 +47,8 @@ windows:
 			],
 		}
 		const result = expand(raw)
-		const panes = (result.windows as any[])[0].panes
+		const windows = result.windows as UnknownRecord[]
+		const panes = windows[0].panes as UnknownRecord[]
 		expect(panes[0]).toEqual({ shell_command: ["echo hello"] })
 	})
 
@@ -61,7 +63,8 @@ windows:
 			],
 		}
 		const result = expand(raw)
-		const panes = (result.windows as any[])[0].panes
+		const windows = result.windows as UnknownRecord[]
+		const panes = windows[0].panes as UnknownRecord[]
 		expect(panes[0].shell_command).toEqual(["echo hello"])
 	})
 
@@ -82,7 +85,8 @@ windows:
 			windows: [{ window_name: "main", panes: [{}] }],
 		}
 		const result = trickle(config)
-		expect((result.windows as any[])[0].start_directory).toBe("/tmp")
+		const windows = result.windows as UnknownRecord[]
+		expect(windows[0].start_directory).toBe("/tmp")
 	})
 
 	test("trickle inherits start_directory from window to pane", () => {
@@ -97,7 +101,9 @@ windows:
 			],
 		}
 		const result = trickle(config)
-		expect((result.windows as any[])[0].panes[0].start_directory).toBe("/home")
+		const windows = result.windows as UnknownRecord[]
+		const panes = windows[0].panes as UnknownRecord[]
+		expect(panes[0].start_directory).toBe("/home")
 	})
 
 	test("trickle does not override explicit start_directory", () => {
@@ -113,8 +119,10 @@ windows:
 			],
 		}
 		const result = trickle(config)
-		expect((result.windows as any[])[0].start_directory).toBe("/home")
-		expect((result.windows as any[])[0].panes[0].start_directory).toBe("/var")
+		const windows = result.windows as UnknownRecord[]
+		const panes = windows[0].panes as UnknownRecord[]
+		expect(windows[0].start_directory).toBe("/home")
+		expect(panes[0].start_directory).toBe("/var")
 	})
 
 	test("trickle inherits shell_command_before from session to window", () => {
@@ -124,6 +132,7 @@ windows:
 			windows: [{ window_name: "main", panes: [{}] }],
 		}
 		const result = trickle(config)
-		expect((result.windows as any[])[0].shell_command_before).toEqual(["source ~/.bashrc"])
+		const windows = result.windows as UnknownRecord[]
+		expect(windows[0].shell_command_before).toEqual(["source ~/.bashrc"])
 	})
 })

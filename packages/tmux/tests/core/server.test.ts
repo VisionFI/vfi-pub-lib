@@ -51,7 +51,10 @@ describe("Server", () => {
 	test("getSession finds a session by name", () => {
 		const session = server.getSession(TEST_SESSION)
 		expect(session).toBeDefined()
-		expect(session!.name).toBe(TEST_SESSION)
+		if (!session) {
+			throw new Error("expected test session")
+		}
+		expect(session.name).toBe(TEST_SESSION)
 	})
 
 	test("windows returns all windows across sessions", () => {

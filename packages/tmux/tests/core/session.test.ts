@@ -55,7 +55,10 @@ describe("Session", () => {
 	test("getWindow finds a window by name", () => {
 		const window = session.getWindow("test-window")
 		expect(window).toBeDefined()
-		expect(window!.name).toBe("test-window")
+		if (!window) {
+			throw new Error("expected test-window")
+		}
+		expect(window.name).toBe("test-window")
 	})
 
 	test("panes returns all panes in the session", () => {

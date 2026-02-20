@@ -54,7 +54,7 @@ export function freezeSession(session: Session): WorkspaceConfig {
 		if (dirs.length > 0 && dirs.every((d) => d === dirs[0])) {
 			windowConfig.start_directory = dirs[0]
 			for (const p of paneConfigs) {
-				delete p.start_directory
+				p.start_directory = undefined
 			}
 		}
 
@@ -72,10 +72,14 @@ export function freezeSession(session: Session): WorkspaceConfig {
 
 	// Factor up common start_directory from windows to session level
 	const windowDirs = windowConfigs.map((w) => w.start_directory).filter(Boolean)
-	if (windowDirs.length > 0 && windowDirs.length === windowConfigs.length && windowDirs.every((d) => d === windowDirs[0])) {
+	if (
+		windowDirs.length > 0 &&
+		windowDirs.length === windowConfigs.length &&
+		windowDirs.every((d) => d === windowDirs[0])
+	) {
 		config.start_directory = windowDirs[0]
 		for (const w of windowConfigs) {
-			delete w.start_directory
+			w.start_directory = undefined
 		}
 	}
 

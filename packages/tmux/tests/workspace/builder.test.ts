@@ -44,7 +44,10 @@ describe("builder", () => {
 
 		const firstWindow = session.windows.find((w) => w.name === "editor")
 		expect(firstWindow).toBeDefined()
-		expect(firstWindow!.panes.length).toBe(2)
+		if (!firstWindow) {
+			throw new Error("expected editor window")
+		}
+		expect(firstWindow.panes.length).toBe(2)
 
 		const secondWindow = session.windows.find((w) => w.name === "terminal")
 		expect(secondWindow).toBeDefined()

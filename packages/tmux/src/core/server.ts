@@ -1,10 +1,10 @@
 import { tmuxCmd } from "./exec.js"
 import { PANE_FORMATS, WINDOW_FORMATS, buildFormatString, getFormatFields, parseFormatOutput } from "./formats.js"
+import { SESSION_FORMATS } from "./formats.js"
+import { Pane } from "./pane.js"
 import { Session } from "./session.js"
 import type { NewSessionOptions, ServerOptions, TmuxCommandResult } from "./types.js"
 import { Window } from "./window.js"
-import { Pane } from "./pane.js"
-import { SESSION_FORMATS } from "./formats.js"
 
 /**
  * Represents a tmux server — the top of the object hierarchy.
