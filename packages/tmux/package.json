@@ -13,7 +13,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "vfi-tmux": "./bin/vfi-tmux.ts"
+    "vfi-tmux": "./bin/vfi-tmux.js"
   },
   "exports": {
     ".": {
@@ -42,7 +42,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "bun run typecheck && bun build ./src/index.ts --outdir ./dist --target node --format esm && tsc --emitDeclarationOnly",
+    "build": "bun run typecheck && bun build ./src/index.ts ./src/core/index.ts ./src/workspace/index.ts ./src/plugin/index.ts ./src/cli/index.ts --outdir ./dist --target node --format esm && tsc --emitDeclarationOnly",
     "typecheck": "tsc --noEmit",
     "test": "bun test",
     "lint": "biome check .",
