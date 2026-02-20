@@ -1,11 +1,12 @@
-import { afterAll, beforeAll, describe, expect, test } from "bun:test"
+import { afterAll, beforeAll, expect, test } from "bun:test"
 import { Server } from "../../src/core/server"
 import { buildWorkspace } from "../../src/workspace/builder"
 import type { WorkspaceConfig } from "../../src/workspace/types"
+import { describeIntegration } from "../helpers/integration"
 
 const TEST_SESSION = "__vfi_tmux_test_builder__"
 
-describe("builder", () => {
+describeIntegration("builder", () => {
 	let server: Server
 
 	beforeAll(() => {

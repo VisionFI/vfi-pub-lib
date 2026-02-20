@@ -44,11 +44,14 @@
   "scripts": {
     "build": "bun run typecheck && bun build ./src/index.ts ./src/core/index.ts ./src/workspace/index.ts ./src/plugin/index.ts ./src/cli/index.ts --outdir ./dist --target node --format esm && tsc --emitDeclarationOnly",
     "typecheck": "tsc --noEmit",
-    "test": "bun test",
+    "test": "bun run test:unit",
+    "test:unit": "bun test",
+    "test:integration": "TMUX_INTEGRATION=1 bun test tests/core/server.test.ts tests/core/session.test.ts tests/core/window.test.ts tests/core/pane.test.ts tests/workspace/builder.test.ts tests/workspace/freezer.test.ts",
+    "test:all": "bun run test:unit && bun run test:integration",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
-    "cli": "bun run bin/vfi-tmux.ts"
+    "cli": "node ./bin/vfi-tmux.js"
   },
   "dependencies": {
     "chalk": "^5.4.1",

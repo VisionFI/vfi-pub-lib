@@ -1,13 +1,14 @@
-import { afterAll, beforeAll, describe, expect, test } from "bun:test"
+import { afterAll, beforeAll, expect, test } from "bun:test"
 import { Server } from "../../src/core/server"
 import type { Session } from "../../src/core/session"
 import { buildWorkspace } from "../../src/workspace/builder"
 import { freezeSession } from "../../src/workspace/freezer"
 import type { WorkspaceConfig } from "../../src/workspace/types"
+import { describeIntegration } from "../helpers/integration"
 
 const TEST_SESSION = "__vfi_tmux_test_freezer__"
 
-describe("freezer", () => {
+describeIntegration("freezer", () => {
 	let server: Server
 	let session: Session
 

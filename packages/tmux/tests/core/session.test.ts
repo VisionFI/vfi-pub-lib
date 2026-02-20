@@ -1,10 +1,11 @@
-import { afterAll, beforeAll, describe, expect, test } from "bun:test"
+import { afterAll, beforeAll, expect, test } from "bun:test"
 import { Server } from "../../src/core/server"
 import type { Session } from "../../src/core/session"
+import { describeIntegration } from "../helpers/integration"
 
 const TEST_SESSION = "__vfi_tmux_test_session__"
 
-describe("Session", () => {
+describeIntegration("Session", () => {
 	let server: Server
 	let session: Session
 
