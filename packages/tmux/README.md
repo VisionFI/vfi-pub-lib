@@ -1,19 +1,19 @@
-# @visionfi/tmux
+# @vfi-pub/tmux
 
 TypeScript library for programmatically controlling [tmux](https://github.com/tmux/tmux). Provides a typed object model (Server → Session → Window → Pane), workspace config management, and a CLI — inspired by the Python libraries [libtmux](https://github.com/tmux-python/libtmux) (MIT) and [tmuxp](https://github.com/tmux-python/tmuxp) (MIT).
 
 ## Install
 
 ```bash
-bun add @visionfi/tmux
+bun add @vfi-pub/tmux
 # or
-npm install @visionfi/tmux
+npm install @vfi-pub/tmux
 ```
 
 ## Quick Start
 
 ```typescript
-import { Server } from "@visionfi/tmux"
+import { Server } from "@vfi-pub/tmux"
 
 const server = new Server()
 
@@ -139,7 +139,7 @@ windows:
 ```
 
 ```typescript
-import { loadConfig, buildWorkspace, Server } from "@visionfi/tmux"
+import { loadConfig, buildWorkspace, Server } from "@vfi-pub/tmux"
 
 // Load and build
 const config = loadConfig("workspace.yaml")
@@ -147,7 +147,7 @@ const server = new Server()
 const session = await buildWorkspace(server, config, { killExisting: true })
 
 // Freeze a running session back to config
-import { freezeSession } from "@visionfi/tmux"
+import { freezeSession } from "@vfi-pub/tmux"
 const frozen = freezeSession(session)
 ```
 
@@ -164,7 +164,7 @@ const frozen = freezeSession(session)
 Extend workspace builds with lifecycle hooks:
 
 ```typescript
-import { TmuxPlugin } from "@visionfi/tmux"
+import { TmuxPlugin } from "@vfi-pub/tmux"
 
 class LoggingPlugin extends TmuxPlugin {
   name = "logging"

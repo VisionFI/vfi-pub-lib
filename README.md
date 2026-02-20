@@ -1,12 +1,12 @@
-# VisionFI Public Libraries
+# Public Libraries
 
-Open-source TypeScript libraries by [VisionFI](https://visionfi.com). MIT licensed.
+Open-source TypeScript libraries. MIT licensed.
 
 ## Packages
 
 | Package | Description |
 |---------|-------------|
-| [`@visionfi/tmux`](packages/tmux) | TypeScript library for programmatically controlling tmux |
+| [`@vfi-pub/tmux`](packages/tmux) | TypeScript library for programmatically controlling tmux |
 
 ## Development
 

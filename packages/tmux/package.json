@@ -1,5 +1,5 @@
 {
-  "name": "@visionfi/tmux",
+  "name": "@vfi-pub/tmux",
   "version": "0.1.0",
   "description": "TypeScript library for programmatically controlling tmux — inspired by libtmux + tmuxp",
   "type": "module",
@@ -7,7 +7,7 @@
   "author": "VisionFI",
   "repository": {
     "type": "git",
-    "url": "https://github.com/visionfi/visionfi-public-libraries.git",
+    "url": "https://github.com/visionfi/vfi-pub-lib.git",
     "directory": "packages/tmux"
   },
   "main": "./dist/index.js",
@@ -38,6 +38,9 @@
     "bin",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "bun run typecheck && bun build ./src/index.ts --outdir ./dist --target node --format esm && tsc --emitDeclarationOnly",
     "typecheck": "tsc --noEmit",

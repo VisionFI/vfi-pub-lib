@@ -1,6 +1,6 @@
 # @visionfi/tmux
 
-TypeScript tmux library — part of the `visionfi-public-libraries` monorepo.
+TypeScript tmux library — part of the `vfi-pub-lib` monorepo.
 
 ## Development
 

@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "visionfi-public-libraries",
+      "name": "vfi-pub-lib",
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
         "typescript": "^5.7.3",

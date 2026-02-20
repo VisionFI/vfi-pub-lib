@@ -1,5 +1,5 @@
 {
-  "name": "visionfi-public-libraries",
+  "name": "vfi-pub-lib",
   "private": true,
   "workspaces": [
     "packages/*"
