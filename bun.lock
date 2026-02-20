@@ -1,5 +1,6 @@
 {
   "lockfileVersion": 1,
+  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "vfi-pub-lib",
@@ -9,10 +10,10 @@
       },
     },
     "packages/tmux": {
-      "name": "@visionfi/tmux",
+      "name": "@vfi-pub/tmux",
       "version": "0.1.0",
       "bin": {
-        "vfi-tmux": "./bin/vfi-tmux.ts",
+        "vfi-tmux": "./bin/vfi-tmux.js",
       },
       "dependencies": {
         "chalk": "^5.4.1",
@@ -47,7 +48,7 @@
 
     "@types/node": ["@types/node@25.3.0", "", { "dependencies": { "undici-types": "~7.18.0" } }, "sha512-4K3bqJpXpqfg2XKGK9bpDTc6xO/xoUP/RBWS7AtRMug6zZFaRekiLzjVtAoZMquxoAbzBvy5nxQ7veS5eYzf8A=="],
 
-    "@visionfi/tmux": ["@visionfi/tmux@workspace:packages/tmux"],
+    "@vfi-pub/tmux": ["@vfi-pub/tmux@workspace:packages/tmux"],
 
     "bun-types": ["bun-types@1.3.9", "", { "dependencies": { "@types/node": "*" } }, "sha512-+UBWWOakIP4Tswh0Bt0QD0alpTY8cb5hvgiYeWCMet9YukHbzuruIEeXC2D7nMJPB12kbh8C7XJykSexEqGKJg=="],
 
