@@ -95,9 +95,10 @@ function splitOutput(output: string): string[] {
 
 /** Escape a string for safe shell execution */
 function shellEscape(arg: string): string {
-	// If the arg is safe (alphanumeric, dashes, underscores, dots, slashes, colons, equals, at, percent, hash, plus, comma, curly braces),
-	// no escaping needed
-	if (/^[a-zA-Z0-9_\-./=:@%#+,{}]+$/.test(arg)) {
+	// If the arg is safe (alphanumeric, dashes, underscores, dots, slashes, colons, equals, at, percent, plus, comma),
+	// no escaping needed. Note: # {} are excluded — # causes bash comment interpretation,
+	// {} can trigger brace expansion, and #{...} (tmux format strings) must be quoted.
+	if (/^[a-zA-Z0-9_\-./=:@%+,]+$/.test(arg)) {
 		return arg
 	}
 	// Otherwise wrap in single quotes, escaping any existing single quotes
